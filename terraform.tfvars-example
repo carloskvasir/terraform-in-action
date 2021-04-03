@@ -1,0 +1,5 @@
+# apikey digitalocean span.carloskvasir
+do_token = "---%<---"
+
+# ssh finger in digitalocean
+droplet_ssh_keys = ["---%<---"]

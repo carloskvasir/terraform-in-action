@@ -12,6 +12,4 @@ resource "digitalocean_droplet" "web" {
   lifecycle {
     create_before_destroy = true
   }
-
-  count = 2
 }
