@@ -26,7 +26,7 @@ variable "droplet_size" {
   default     = "s-1vcpu-1gb"
 }
 
-variable "droplet_name" {
-  type    = string
-  default = "web-1"
+variable "droplet_names" {
+  type    = list(string)
+  default = ["tango", "forro"]
 }
