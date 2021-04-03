@@ -1,10 +1,17 @@
 provider "digitalocean" {
-    token = var.do_token
+  token = var.do_token
 }
 
 resource "digitalocean_droplet" "web" {
-  image  = "ubuntu-20-04-x64"
-  name   = "web-1"
-  region = "nyc3"
-  size   = "s-1vcpu-1gb"
+  image    = var.droplet_image
+  name     = var.droplet_name
+  region   = var.droplet_region
+  size     = var.droplet_size
+  ssh_keys = var.droplet_ssh_keys
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  count = 2
 }
