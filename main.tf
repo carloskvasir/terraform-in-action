@@ -9,5 +9,12 @@ resource "digitalocean_droplet" "web" {
     create_before_destroy = true
   }
 
+  provisioner "remote-exec" {
+  inline = [
+    "curl -fsSL https://get.docker.com | sh",
+    "docker run -d -p 80:80 nginx"
+  ]
+}
+
   count = length(var.droplet_names)
 }
