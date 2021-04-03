@@ -28,5 +28,5 @@ variable "droplet_size" {
 
 variable "droplet_names" {
   type    = list(string)
-  default = ["tango", "forro"]
+  default = ["tango"]
 }

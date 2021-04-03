@@ -13,5 +13,5 @@ resource "digitalocean_droplet" "web" {
     create_before_destroy = true
   }
 
-  count = 2
+  count = length(var.droplet_names)
 }
