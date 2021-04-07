@@ -60,3 +60,7 @@ resource "digitalocean_database_db" "database-example" {
   cluster_id = digitalocean_database_cluster.postgres.id
   name       = var.database_name
 }
+resource "digitalocean_database_user" "username" {
+  cluster_id = digitalocean_database_cluster.postgres.id
+  name       = var.database_username
+}

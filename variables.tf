@@ -72,3 +72,9 @@ variable "database_name" {
   description = "Name for database"
   default     = "limerick"
 }
+
+variable "database_username"{
+  type = string
+  description = "User for database"
+  default = "irlanda"
+}
