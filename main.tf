@@ -13,7 +13,7 @@ resource "digitalocean_droplet" "web" {
     connection {
       type        = "ssh"
       user        = "root"
-      host        = digitalocean_droplet.web[count.index].ipv4_address
+      host        = self.ipv4_address
       timeout     = "2m"
       private_key = file(var.private_key_path)
     }
