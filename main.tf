@@ -10,11 +10,19 @@ resource "digitalocean_droplet" "web" {
   }
 
   provisioner "remote-exec" {
-  inline = [
-    "curl -fsSL https://get.docker.com | sh",
-    "docker run -d -p 80:80 nginx"
-  ]
-}
+    connection {
+      type        = "ssh"
+      user        = "root"
+      host        = digitalocean_droplet.web[count.index].ipv4_address
+      timeout     = "2m"
+      private_key = file(var.private_key_path)
+    }
+
+    inline = [
+      "curl -fsSL https://get.docker.com | sh",
+      "docker run -d -p 80:80 nginx"
+    ]
+  }
 
   count = length(var.droplet_names)
 }

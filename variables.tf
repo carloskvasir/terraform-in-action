@@ -3,6 +3,12 @@ variable "do_token" {
   description = "Token for digitalocean"
 }
 
+variable "private_key_path" {
+  type        = string
+  description = "Path to private ssh key"
+  default     = "~/.ssh/id_rsa"
+}
+
 variable "droplet_ssh_keys" {
   type        = list(string)
   description = "Fingerprint of ssh keys in digitalocean"
