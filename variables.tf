@@ -20,7 +20,7 @@ variable "droplet_image" {
   default     = "ubuntu-20-04-x64"
 }
 
-variable "droplet_region" {
+variable "datacenter_region" {
   type        = string
   description = "Region base default"
   default     = "ams3"
@@ -34,11 +34,41 @@ variable "droplet_size" {
 
 variable "droplet_names" {
   type    = list(string)
-  default = ["tango", "forro"]
+  default = ["tango"]
 }
 
 variable "lb_name" {
   type        = string
   description = "Name of loadbalancer"
   default     = "loadbalancer"
+}
+
+variable "pg_cluster_name" {
+  type        = string
+  description = "Name of cluster for postgres"
+  default     = "postgres-cluster"
+}
+
+variable "pg_cluster_version" {
+  type        = string
+  description = "Version for postgres"
+  default     = "12"
+}
+
+variable "pg_cluster_size" {
+  type        = string
+  description = "Size of machine for database"
+  default     = "db-s-1vcpu-1gb"
+}
+
+variable "pg_nodes_count" {
+  type        = number
+  description = "Number of nodes in db cluster"
+  default     = 1
+}
+
+variable "database_name" {
+  type        = string
+  description = "Name for database"
+  default     = "limerick"
 }

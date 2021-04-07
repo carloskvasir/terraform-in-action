@@ -1,7 +1,7 @@
 resource "digitalocean_droplet" "web" {
   image    = var.droplet_image
   name     = var.droplet_names[count.index]
-  region   = var.droplet_region
+  region   = var.datacenter_region
   size     = var.droplet_size
   ssh_keys = var.droplet_ssh_keys
 
@@ -29,7 +29,7 @@ resource "digitalocean_droplet" "web" {
 
 resource "digitalocean_loadbalancer" "public" {
   name   = var.lb_name
-  region = var.droplet_region
+  region = var.datacenter_region
 
   forwarding_rule {
     entry_port     = 80
@@ -45,4 +45,18 @@ resource "digitalocean_loadbalancer" "public" {
   }
 
   droplet_ids = digitalocean_droplet.web[*].id
+}
+
+resource "digitalocean_database_cluster" "postgres" {
+  name       = var.pg_cluster_name
+  engine     = "pg"
+  version    = var.pg_cluster_version
+  size       = var.pg_cluster_size
+  region     = var.datacenter_region
+  node_count = var.pg_nodes_count
+}
+
+resource "digitalocean_database_db" "database-example" {
+  cluster_id = digitalocean_database_cluster.postgres.id
+  name       = var.database_name
 }
