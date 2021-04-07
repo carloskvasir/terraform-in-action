@@ -34,5 +34,11 @@ variable "droplet_size" {
 
 variable "droplet_names" {
   type    = list(string)
-  default = ["tango"]
+  default = ["tango", "forro"]
+}
+
+variable "lb_name" {
+  type        = string
+  description = "Name of loadbalancer"
+  default     = "loadbalancer"
 }
