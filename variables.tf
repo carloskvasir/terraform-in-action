@@ -78,3 +78,9 @@ variable "database_username" {
   description = "User for database"
   default     = "irlanda"
 }
+
+variable "firewall_name" {
+  type        = string
+  description = "Name for firewall rule"
+  default     = "braum"
+}
