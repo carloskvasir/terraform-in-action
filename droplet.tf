@@ -4,6 +4,7 @@ resource "digitalocean_droplet" "web" {
   region   = var.datacenter_region
   size     = var.droplet_size
   ssh_keys = var.droplet_ssh_keys
+  tags     = ["webserver"]
 
   lifecycle {
     create_before_destroy = true
