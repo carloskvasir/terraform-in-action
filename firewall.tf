@@ -27,3 +27,11 @@ resource "digitalocean_firewall" "web" {
   }
 }
 
+resource "digitalocean_database_firewall" "postgres_firewal" {
+  cluster_id = digitalocean_database_cluster.postgres.id
+
+  rule {
+    type  = "tag"
+    value = "webserver"
+  }
+}
