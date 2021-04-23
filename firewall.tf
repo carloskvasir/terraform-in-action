@@ -27,7 +27,7 @@ resource "digitalocean_firewall" "web" {
   }
 }
 
-resource "digitalocean_database_firewall" "postgres_firewal" {
+resource "digitalocean_database_firewall" "postgres_firewall" {
   cluster_id = digitalocean_database_cluster.postgres.id
 
   rule {
