@@ -1,5 +1,9 @@
-# apikey digitalocean span.carloskvasir
+# apikey digitalocean
 do_token = "---%<---"
 
 # ssh finger in digitalocean
 droplet_ssh_keys = ["---%<---"]
+
+# path do my private key ssh
+private_key_path = "---%<---"
+
