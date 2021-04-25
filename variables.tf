@@ -88,5 +88,5 @@ variable "firewall_name" {
 variable "troubleshooting" {
   type        = bool
   description = "Allow access for droplets to port 22 (ssh)"
-  default     = true
+  default     = false
 }

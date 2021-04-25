@@ -10,6 +10,12 @@ resource "digitalocean_firewall" "web" {
 
   inbound_rule {
     protocol                  = "tcp"
+    port_range                = "22"
+    source_load_balancer_uids = [digitalocean_loadbalancer.public.id]
+  }
+
+  inbound_rule {
+    protocol                  = "tcp"
     port_range                = "80"
     source_load_balancer_uids = [digitalocean_loadbalancer.public.id]
   }
