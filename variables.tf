@@ -84,3 +84,9 @@ variable "firewall_name" {
   description = "Name for firewall rule"
   default     = "braum"
 }
+
+variable "troubleshooting" {
+  type        = bool
+  description = "Allow access for droplets to port 22 (ssh)"
+  default     = true
+}
