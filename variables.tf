@@ -90,3 +90,9 @@ variable "troubleshooting" {
   description = "Allow access for droplets to port 22 (ssh)"
   default     = false
 }
+
+variable "environment_name" {
+  type        = string
+  description = "Name of environment."
+  default     = "prod"
+}

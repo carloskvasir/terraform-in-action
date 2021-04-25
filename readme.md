@@ -11,3 +11,14 @@ Execute terraform with personal definitions
 ```bash
 terraform apply -var-file='terraform.tfvars'
 ```
+
+To deploy with no downtime use taint do mark elements 
+
+To mark first webworker droplet:
+```bash
+terraform taint "digitalocean_droplet.web[0]"
+```
+After you can run aplly comand
+```bash
+terraform apply
+```

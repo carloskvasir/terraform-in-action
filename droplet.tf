@@ -21,7 +21,7 @@ resource "digitalocean_droplet" "web" {
 
     inline = [
       "curl -fsSL https://get.docker.com | sh",
-      "docker run -d -p 80:80 nginx"
+      "docker run -d -p 80:8080 -e DATABASE_URL=${digitalocean_database_cluster.postgres.uri} -e ENVIRONMENT=${var.environment_name} igordcsouza/hc-terraform"
     ]
   }
 
