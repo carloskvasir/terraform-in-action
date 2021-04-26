@@ -17,7 +17,7 @@ variable "droplet_ssh_keys" {
 variable "droplet_image" {
   type        = string
   description = "Base image for droplet"
-  default     = "packer-1619412226"
+  default     = "packer-1619413805"
 }
 
 variable "datacenter_region" {

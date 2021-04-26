@@ -15,7 +15,10 @@
   "provisioners": [
     {
       "type": "shell",
-      "inline": ["curl -fsSL https://get.docker.com | sh && docker --version"]
+      "inline": [
+        "curl -fsSL https://get.docker.com | sh",
+        "docker pull igordcsouza/hc-terraform"
+      ]
     }
   ]
 }
